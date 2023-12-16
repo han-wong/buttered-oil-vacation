@@ -1,2 +1,3 @@
-# flask-hangman
+# Python Flask project
+
 Game of Hangman
