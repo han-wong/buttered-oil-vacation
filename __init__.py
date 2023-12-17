@@ -10,7 +10,7 @@ def create_app(config_class=Config):
     # Initialize Flask extensions here
 
     # Register blueprints here
-    from app.main import bp as main_bp
+    from flask_hangman.main import bp as main_bp
 
     app.register_blueprint(main_bp)
 
@@ -22,4 +22,4 @@ def create_app(config_class=Config):
 
 
 if __name__ == "__main__":
-    create_app().run()
+    create_app()
