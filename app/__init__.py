@@ -1,13 +1,12 @@
 from flask import Flask
 
 from config import Config
-from board import pages
 
 
 def create_app(config_class=Config):
     app = Flask(__name__)
     app.config.from_object(config_class)
-
+    print(config_class)
     # Initialize Flask extensions here
 
     # Register blueprints here
@@ -22,5 +21,5 @@ def create_app(config_class=Config):
     return app
 
 
-# if __name__ == "__main__":
-#     create_app().run()
+if __name__ == "__main__":
+    create_app().run()

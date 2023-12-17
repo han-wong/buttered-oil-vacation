@@ -1,0 +1,9 @@
+{
+    "editor.rulers": [
+        76
+    ],
+    "files.exclude": {
+        "**/__pycache__": true,
+        "**/venv": true
+    }
+}
