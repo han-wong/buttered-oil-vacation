@@ -41,7 +41,8 @@ app.config.update(SECRET_KEY=os.environ.get("SECRET_KEY"))
 
 @app.route("/")
 def home():
-    return render_template("index.html")
+    return "Hello, World!"
+    # return render_template("index.html")
 
 
 @app.route("/result", methods=["GET", "POST"])
