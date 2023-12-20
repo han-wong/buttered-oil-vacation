@@ -1,6 +1,6 @@
 #!/bin/bash
 
-cd fabulous-simple-freckle
+cd buttered-oil-vacation
 
 # For development use (simple logging, etc):
 # python3 -m pip install -r requirements.txt

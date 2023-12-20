@@ -68,19 +68,19 @@ def git():
 
         verify_signature(PAYLOAD, TOKEN, HEADER)
 
-        import subprocess
-
-        git_message = subprocess.check_output(
-            "git reset --hard HEAD", shell=True
-        )
-        git_message += subprocess.check_output(
-            "git pull", shell=True
-        )
+        git_message = keep_up_to_date_with_main()
         os.system("refresh")
-
         return git_message
 
     return "<h1>Testing the Flask Application Factory Pattern</h1>"
+
+
+def keep_up_to_date_with_main():
+    import subprocess
+
+    git_message = subprocess.check_output("git reset --hard HEAD", shell=True)
+    git_message += subprocess.check_output("git pull", shell=True)
+    return git_message
 
 
 if __name__ == "__main__":
