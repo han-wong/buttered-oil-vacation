@@ -1,9 +1,11 @@
+import os
+import subprocess
+from werkzeug.exceptions import Forbidden
+
 from flask import (
     Blueprint,
     request,
 )
-import os
-from werkzeug.exceptions import Forbidden
 
 bp = Blueprint("git", __name__)
 
@@ -12,7 +14,7 @@ bp = Blueprint("git", __name__)
 def git():
     if request.method == "POST":
         PAYLOAD = request.get_data()
-        TOKEN = os.environ.get("WEBHOOK").encode()
+        TOKEN = os.getenv("WEBHOOK").encode()
         HEADER = request.headers.get("X-Hub-Signature-256").encode()
 
         if len(PAYLOAD) > 1 * 1024 * 1024:
@@ -50,8 +52,6 @@ def verify_signature(payload_body, secret_token, signature_header):
 
 
 def keep_up_to_date_with_main():
-    import subprocess
-
     git_message = subprocess.check_output("git reset --hard HEAD", shell=True)
     git_message += subprocess.check_output("git pull", shell=True)
     return git_message
